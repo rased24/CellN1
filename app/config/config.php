@@ -10,7 +10,7 @@ const DB_NAME = 'cell_n1';
 define( 'APPROOT', dirname( dirname( __FILE__ ) ) );
 
 //Define URLROOT
-const URLROOT = 'http://localhost/Cell%20N1';
+const URLROOT = 'http://localhost/CellN1';
 
 //Define Site name
 const SITENAME = 'Cell N1';
