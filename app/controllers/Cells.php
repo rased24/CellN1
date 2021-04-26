@@ -5,12 +5,14 @@ class Cells extends Controller
 	protected $playerModel;
 	protected $cellModel;
 	protected $countryModel;
+	protected $workerModel;
 
 	public function __construct ()
 	{
 		$this->playerModel  = $this->model( 'Player' );
 		$this->cellModel    = $this->model( 'Cell' );
 		$this->countryModel = $this->model( 'Country' );
+		$this->workerModel  = $this->model( 'Worker' );
 	}
 
 	public function createCountry ()
