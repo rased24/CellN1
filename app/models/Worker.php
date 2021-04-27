@@ -25,4 +25,22 @@ class Worker
 			return FALSE;
 		}
 	}
+
+	public function createWorker ( $owner_id, $cell_id, $character_id )
+	{
+		$this->db->query( 'INSERT INTO workers (owner_id, cell_id, character_id) VALUES (:owner_id, :cell_id, :character_id)' );
+
+		$this->db->bind( ':owner_id', $owner_id );
+		$this->db->bind( ':cell_id', $cell_id );
+		$this->db->bind( ':character_id', $character_id );
+
+		if ( $this->db->execute() )
+		{
+			return TRUE;
+		}
+		else
+		{
+			return  FALSE;
+		}
+	}
 }

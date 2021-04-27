@@ -39,6 +39,10 @@ class Cells extends Controller
 				$this->cellModel->addCell( $data[ 'id' ] - 1, 'cave', Store::$player->id );
 				$this->cellModel->addCell( $data[ 'id' ] + 100, 'army', Store::$player->id );
 				$this->cellModel->addCell( $data[ 'id' ] - 100, 'forest', Store::$player->id );
+				$this->workerModel->createWorker( Store::$player->id, $data[ 'id' ] - 1, 1  );
+				$this->workerModel->createWorker( Store::$player->id, $data[ 'id' ] - 100, 2  );
+				$this->workerModel->createWorker( Store::$player->id, $data[ 'id' ] + 100, 3  );
+				$this->workerModel->createWorker( Store::$player->id, $data[ 'id' ] + 1, 4  );
 				$this->countryModel->createCountry( Store::$player->id, $data[ 'name' ] );
 
 				echo json_encode( $data );
@@ -69,15 +73,6 @@ class Cells extends Controller
 				{
 					$data[ 'is_sea' ] = FALSE;
 					$data[ 'type' ]   = $cell->type;
-					/*
-					 * (  $this->cellModel->getCell( $data[ 'id' ] + 2 ) ||
-				                $this->cellModel->getCell( $data[ 'id' ] - 2 ) ||
-				                $this->cellModel->getCell( $data[ 'id' ] + 101 ) ||
-				                $this->cellModel->getCell( $data[ 'id' ] + 99 ) ||
-				                $this->cellModel->getCell( $data[ 'id' ] - 101 ) ||
-				                $this->cellModel->getCell( $data[ 'id' ] - 99 )  )
-					 */
-
 
 					if ( $cell->owner_id === Store::$player->id )
 					{
